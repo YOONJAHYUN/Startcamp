@@ -9,8 +9,16 @@
 import requests
 
 date = input('회차를 입력해 주세요  : ')
-print(date)
+#print(date)
 
 r = requests.get(f'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={date}').json()
 
-print(date, '회차의 당첨 번호는', r['drwtNo1'], r['drwtNo2'], r['drwtNo3'], r['drwtNo4'], r['drwtNo5'], r['drwtNo6'], '입니다. \n그리고 보너스 번호는 ', r['bnusNo'], '입니다.')
+# print(date, '회차의 당첨 번호는', r['drwtNo1'], r['drwtNo2'], r['drwtNo3'], r['drwtNo4'], r['drwtNo5'], r['drwtNo6'], '입니다. \n그리고 보너스 번호는 ', r['bnusNo'], '입니다.')
+
+numbers = list(range(1, 7))
+
+for num in numbers:
+    print(r[f'drwtNo{num}'])
+
+
+
